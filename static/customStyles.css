@@ -79,3 +79,76 @@ ul,a {
 
 a:visited,a{color:unset;}
 
+.k {
+    background-image:  url(Assets/whiteK.svg);
+    background-repeat: no-repeat;
+    animation: rotationk 3s infinite linear;
+    transform-origin: left;
+    z-index: 10;
+}
+.d {
+    background-image:  url(Assets/whiteD.svg);
+    background-repeat: no-repeat;
+
+    animation: rotationd 3s infinite linear;
+    transform-origin: left;
+    z-index: 10;
+}
+
+
+.navContainer {
+    position: relative;
+    size:inherit;
+    min-width: 80%;
+    max-width: 80%;
+    margin-left:20%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+@keyframes rotationk {
+    from {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+    
+    50%{
+        opacity: .1;
+
+    }
+    75%{
+        opacity: 0;
+    }
+
+    to {
+        transform: rotateY(360deg);
+        opacity: 1;
+    }
+    
+}
+
+
+
+@keyframes rotationd {
+    from {
+        opacity: 0;
+
+        transform: rotateY(-90deg);
+    }
+    25%{
+        opacity: 1;
+
+    }
+
+    75%{
+        opacity: .1;
+    }
+
+    to {
+        opacity: 0;
+        transform: rotateY(270deg);
+    }
+
+}
+
