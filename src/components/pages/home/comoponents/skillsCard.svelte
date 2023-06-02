@@ -1,6 +1,7 @@
 <script>
     export let title = 'Default Title';
     export let content = 'Default content, here is some sample text to illistrate a short paragraph';
+    export let isdefault = true;
 </script>
 
 <div class="skill">
@@ -14,8 +15,8 @@
 <style>
     .skill {
 		min-width: 100px;
-		min-height:max-content;
-        height: 60%;
+		min-height:50;
+        height: max-content;
 		border: 1px dashed white;
 		border-radius: 10px;
         display: flex;
@@ -62,6 +63,7 @@ min-height:  calc((10px + (15 - 10) * (100vw - 320px) / (1080 - 320))*10);
 margin-left: 1%;
 text-align: center;
 min-width: 30ch;
+padding-right:10px;
      }
      pre::before{
         content: '<h2>';
@@ -80,4 +82,10 @@ min-width: 30ch;
         
     }
      
+@media (max-width: 600px) {
+    .skill{
+        flex-basis:  clamp(240px, 90%, 100%)
+        
+    }
+}
 </style>
