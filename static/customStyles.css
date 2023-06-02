@@ -54,7 +54,6 @@ table {
 html{
     min-height:auto;
     background-attachment: fixed;
-
     min-width: clamp(320px, 100vw, 3840px);
     background-image: url(Assets/background.svg);
     background-repeat: no-repeat;
@@ -70,6 +69,14 @@ body{
     background-color: unset;
     font-size: clamp(1rem, 2.25vw, 1.5rem); 
 }
+@media (max-width: 600px) {
+    body{
+        width:95vw;
+    margin: 3vh 0 2vh ;
+
+    }
+}
+
 
 ul,a {
     list-style: none;

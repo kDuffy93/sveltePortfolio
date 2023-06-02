@@ -37,7 +37,7 @@
         padding: 1% 0;
         margin-top: 2.5%;
         text-align: center;
-        font-size: calc(14px + (24 - 14) * (100vw - 320px) / (1080 - 320));
+        font-size: calc(19px + (26 - 19) * (100vw - 320px) / (1080 - 320));
      }
      pre{
         white-space: pre-wrap; 
@@ -45,24 +45,24 @@
         overflow:visible;
         width: 92%;
         min-height: 65%;
-        font-size: calc(8px + (12 - 8) * (100vw - 320px) / (1080 - 320));
+        font-size: calc(12px + (14 - 12) * (100vw - 320px) / (1080 - 320));
         height: clamp(120px, 75%, 240px);
         min-height: 100px;
         align-self: center;        
         display: flex;
 flex-direction: column;
 justify-content: center;
-min-height:  calc((10px + (15 - 10) * (100vw - 320px) / (1080 - 320))*10);
+min-height:  calc((15px + (18 - 15) * (100vw - 320px) / (1080 - 320))*12);
 
      }
      pre>p{
         padding: 2.5% 0;
-        padding-left:7.5%;
+        padding-left:3%;
         border-left: 1px solid white;
-        font-size: calc(10px + (15 - 10) * (100vw - 320px) / (1080 - 320));
+        font-size: calc(14.75px + (17 - 14.5) * (100vw - 320px) / (1080 - 320));
 margin-left: 1%;
 text-align: center;
-min-width: 30ch;
+min-width: 28ch;
 padding-right:10px;
      }
      pre::before{
@@ -82,7 +82,7 @@ padding-right:10px;
         
     }
      
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .skill{
         flex-basis:  clamp(240px, 90%, 100%)
         
