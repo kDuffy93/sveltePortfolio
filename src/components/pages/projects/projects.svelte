@@ -121,13 +121,18 @@
 	onMount(() => {
 		setTimeout(() => {
 			updateNavButtonLocations();
+		window.addEventListener('resize', updateNavButtonLocations);
+
 }, 1000);
 
 		
 	});
+
+
+	
 </script>
 
-<svelte:window bind:innerWidth={screenWidth} bind:innerHeight={screenHeight} />
+<svelte:window bind:innerWidth={screenWidth} bind:innerHeight={screenHeight}  />
 
 <div class="projectsContainer">
 	<nav id="mySidenav" class="sidenav">
