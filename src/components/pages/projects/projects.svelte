@@ -199,12 +199,13 @@
 		display: flex;
 		flex-direction: column;
 	}
+	#mySidenav button {
 
-	@media only screen and (min-device-width: 800px) {
+	left: -100vw;
+	}
 		#mySidenav button {
 			white-space: nowrap;
 			position: fixed; /* Position them relative to the browser window */
-			left: -100vw;
 			transition: 0.3s; /* Add transition on hover */
 			padding: 15px; /* 15px padding */
 			width: fit-content; /* Set a specific width */
@@ -215,24 +216,20 @@
 			border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
 		}
 		#mySidenav button::after {
-			content: url(../Assets/SVG/right-arrow.svg);
+			content: url($Assets/SVG/right-arrow.svg);
 			position: absolute;
 			left: 102%;
 		}
-		#mySidenav button:hover,
-		#mySidenav button:active,
-		#mySidenav button:focus {
+		#mySidenav button:hover{
 			left: 0 !important; /* On mouse-over, make the elements appear as they should */
 		}
 
 		#mySidenav button:hover::after {
 			content: '';
 		}
-	}
 
-	@media only screen and (max-device-width: 799px) {
+	@media only screen and (max-device-width: 1080px) {
 		nav {
-		background-color: rgba(0,0,0,0.2);
 		border-radius: 15px;
 		padding: 10px;
 		display: flex;
@@ -246,12 +243,12 @@
 		align-items: center;
 		justify-content: space-evenly;
 	}
-	.projectsContainer > nav > button {
-		text-decoration: none; /* Remove underline */
-			font-size: 20px; /* Increase font size */
-			color: white;
+	#mySidenav button {
+		white-space: unset;
+		position:unset;
+		color: white;
 			background-color: black; /* White text color */
-			border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+			border-radius: 0 5px 5px 0;
 		border-radius: 12.5px;
 		padding: 5px;
 		min-width: 115px;
