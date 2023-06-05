@@ -22,7 +22,7 @@
         display: flex;
         flex-direction:column;
         justify-content: space-evenly;
-        flex-basis:  clamp(200px ,45%, 700px);
+        flex-basis:  clamp(250px ,45%, 425px);
 	}
 
     .skill>div{
@@ -82,10 +82,15 @@ padding-right:10px;
         
     }
      
-@media (max-width: 800px) {
+    @media (max-width: 800px) {
     .skill{
-        flex-basis:  clamp(240px, 90%, 100%)
+        flex-basis:  clamp(250px, 45%, 425px)
         
+    }
+}
+    @media (max-width: 540px) {
+    .skill{
+        flex-basis:  clamp(250px, 85%, 425px)    
     }
 }
 </style>

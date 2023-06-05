@@ -63,20 +63,28 @@ html{
 }
 body{
     width: 75vw;
-    height: 95vh;
+    min-height: 95vh;
+    height:auto;
     margin: 3vh 0 2vh 12.5%;
     color: #d1d1d1;
     background-color: unset;
-    font-size: clamp(1rem, 2.25vw, 1.5rem); 
+    font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1080 - 320));
 }
-@media (max-width: 600px) {
+
+@media (max-width: 800px) {
     body{
-        width:98vw;
-    margin: 3vh 1vw 2vh 1vw;
+        width:100vw;
+        margin-left:0;
+        margin-right:0;
     }
 
     footer{
         margin:0 !important;
+    }
+    .navContainer > nav {
+    
+    margin-right:15% !important;
+
     }
 }
 

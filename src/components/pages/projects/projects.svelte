@@ -1,15 +1,372 @@
-<main>
-    <p>Projects</p>
-</main>
+<script>
+	import { navigating } from '$app/stores';
+	import { onMount, afterUpdate } from 'svelte';
+	let projects = {
+		project1: {
+			name: 'Story-Maker js Assignment',
+			liveLink: 'https://kduffy93.github.io/comp1073Labs/assignment1/index.html',
+			repoLinks: [
+				{ for: 'Fullstack', link: 'https://github.com/kDuffy93/comp1073Labs/tree/main/assignment1' }
+			],
+			login: {
+				authReq: false,
+				username: '',
+				password: ''
+			},
+			description:
+				'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ',
+			mobile: true
+		},
+		project2: {
+			name: 'Rocketship game',
+			liveLink: 'https://kduffy93.github.io/comp1073Labs/lab4/lab-4-start.html',
+			repoLinks: [
+				{ for: 'Fullstack', link: 'https://github.com/kDuffy93/comp1073Labs/tree/main/lab4' }
+			],
+			description: '',
+			login: {
+				authReq: false,
+				username: '',
+				password: ''
+			},
+			mobile: true
+		},
+		project3: {
+			name: 'Cocktail App',
+			liveLink: 'https://kduffy93.github.io/comp1073Labs/assignment4/index.html',
+			repoLinks: [
+				{ for: 'Fullstack', link: 'https://github.com/kDuffy93/comp1073Labs/tree/main/assignment4' }
+			],
+			description: '',
+			login: {
+				authReq: false,
+				username: '',
+				password: ''
+			},
+			mobile: false
+		},
+		project4: {
+			name: 'Ramara Training App',
+			liveLink: 'https://ramaraapp2019.onrender.com/',
+			repoLinks: [{ for: 'Fullstack', link: 'https://github.com/kDuffy93/ramaraApp2019' }],
+			description: '',
+			mobile: true,
+			login: {
+				authReq: true,
+				username: 'test',
+				password: 'test'
+			}
+		},
+		project5: {
+			name: 'Rental Data Web Scraper',
+			liveLink: 'https://mesn-frontend-xi.vercel.app/',
+			repoLinks: [
+				{ for: 'Front-End', link: 'https://github.com/kDuffy93/MESN-frontend' },
+				{ for: 'Back-End', link: 'https://github.com/kDuffy93/MESN-backend' }
+			],
+			description:
+				'A web scraping application to grab local rental listings from various websites in the county and save the data for further use withing the county departments. \n\n First server request takes a minute to respond, Its not frozen - the server is turning on.',
+			login: {
+				authReq: true,
+				username: 'rich',
+				password: 'password'
+			},
+			mobile: true
+		}
+	};
 
+	let screenWidth = 0;
+	let oldSW = screenWidth;
+	$: selectedProject = projects.project1;
+	let screenHeight;
+
+	$: if (screenWidth < 900 && selectedProject.mobile == false) {
+		selectedProject = projects.project1;
+	}
+
+	$: if (screenWidth != oldSW) {
+		console.log(`new: ${screenWidth} | old: ${oldSW}`);
+		updateNavButtonLocations();
+		oldSW = screenWidth;
+	}
+
+	let selectProject = (e) => {
+		for (const project in projects) {
+			if (Object.hasOwnProperty.call(projects, project)) {
+				const currentProject = projects[project];
+				if (project == e.target.id) {
+					selectedProject = currentProject;
+				}
+			}
+		}
+	};
+
+	$: if ($navigating) updateNavButtonLocations();
+
+	let updateNavButtonLocations = () => {
+			let sideNavButtons = [...document.getElementsByClassName('sideNavButton')];
+			let tempIndex = 0;
+			sideNavButtons.forEach((button) => {
+				let currentButtonWidth = button.getBoundingClientRect().width;
+				console.log(currentButtonWidth);
+				button.style.left = `-${currentButtonWidth - 25}px`;
+				console.log(button.style.left);
+
+				button.style.top = `calc(${20 + tempIndex * 75}px + 20vh)`;
+				console.log(button.style.top);
+				tempIndex++;
+			});
+	};
+
+	onMount(() => {
+		setTimeout(() => {
+			updateNavButtonLocations();
+}, 1000);
+
+		
+	});
+</script>
+
+<svelte:window bind:innerWidth={screenWidth} bind:innerHeight={screenHeight} />
+
+<div class="projectsContainer">
+	<nav id="mySidenav" class="sidenav">
+		{#each Object.entries(projects) as [title, content], i}
+			{#if screenWidth < 900}
+				{#if content.mobile}
+					<button
+						on:loadstart={updateNavButtonLocations}
+						on:click={selectProject}
+						class="sideNavButton"
+						id={title}>{content.name}</button
+					>
+				{/if}
+			{:else}
+				<button
+					on:loadstart={updateNavButtonLocations}
+					on:click={selectProject}
+					class="sideNavButton"
+					id={title}>{content.name}</button
+				>
+			{/if}
+		{/each}
+	</nav>
+
+	<div class="selectedProject">
+		<div class="details">
+			<div class="liveLinkContainer">
+				<h3>Live Link</h3>
+				<div class="buttonContainer">
+					<button><a href={selectedProject.liveLink}>View Website</a></button>
+				</div>
+			</div>
+			<div class="reposContainer">
+				<h3>Reposotories</h3>
+				<div class="buttonContainer">
+					{#each selectedProject.repoLinks as repoLink}
+						<button><a href={repoLink.link}>{repoLink.for} Repo</a></button>
+					{/each}
+				</div>
+			</div>
+			<div class="descriptionContainer">
+				<div class="authContainer">
+					{#if selectedProject.login.authReq == true}
+						<label for="un">Username: </label>
+						<p id="un">{selectedProject.login.username}</p>
+						<label for="pw">Password: </label>
+						<p id="pw">{selectedProject.login.password}</p>
+					{/if}
+				</div>
+				<div class="descriptionText">
+					<p>
+						{selectedProject.description}
+					</p>
+				</div>
+			</div>
+		</div>
+		<iframe src={selectedProject.liveLink} class="resized" title="selectedProject.liveLink}" />
+	</div>
+</div>
 
 <style>
-    main{
-        width:100%;
-        max-height:75vh;
-        height:75%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
+	.projectsContainer {
+		margin-left: 2.5%;
+		margin-top: 50px;
+		width: 95%;
+		height: 100%;
+		flex-grow: 1;
+		min-height: max-content;
+		display: flex;
+		flex-direction: column;
+	}
+
+	@media only screen and (min-device-width: 800px) {
+		#mySidenav button {
+			white-space: nowrap;
+			position: fixed; /* Position them relative to the browser window */
+			left: -100vw;
+			transition: 0.3s; /* Add transition on hover */
+			padding: 15px; /* 15px padding */
+			width: fit-content; /* Set a specific width */
+			text-decoration: none; /* Remove underline */
+			font-size: 20px; /* Increase font size */
+			color: white;
+			background-color: black; /* White text color */
+			border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+		}
+		#mySidenav button::after {
+			content: url(../Assets/SVG/right-arrow.svg);
+			position: absolute;
+			left: 102%;
+		}
+		#mySidenav button:hover,
+		#mySidenav button:active,
+		#mySidenav button:focus {
+			left: 0 !important; /* On mouse-over, make the elements appear as they should */
+		}
+
+		#mySidenav button:hover::after {
+			content: '';
+		}
+	}
+
+	@media only screen and (max-device-width: 799px) {
+		nav {
+		background-color: rgba(0,0,0,0.2);
+		border-radius: 15px;
+		padding: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		width: 95%;
+		height: 10%;
+		min-height: 40px;
+		margin-left: 2.5%;
+		margin-top: 2.5%;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+	.projectsContainer > nav > button {
+		text-decoration: none; /* Remove underline */
+			font-size: 20px; /* Increase font size */
+			color: white;
+			background-color: black; /* White text color */
+			border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+		border-radius: 12.5px;
+		padding: 5px;
+		min-width: 115px;
+		width: clamp(115px, 28vw, 175px);
+border-radius: 7.5px;
+min-height: 6ch;
+
+	}
+}
+	.selectedProject {
+		margin-top: 2.5%;
+		margin-left: -2.5%;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		height: 90%;
+	}
+	.details {
+		width: 100%;
+		height: fit-content;
+		padding: 1%;
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		grid-template-areas: ' . liveLink liveLink . repoLinks repoLinks .' '.description description description description description .';
+		margin-bottom: 15px;
+	}
+	.details > .descriptionContainer {
+		grid-area: description;
+		text-align: center;
+		font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1080 - 320));
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.descriptionContainer > .descriptionText {
+		flex-grow: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.descriptionContainer > .authContainer {
+		display: grid;
+		grid-template-columns: repeat(4, 25%);
+		align-items: center;
+		justify-self: flex-start;
+	}
+	label {
+		font-size: calc(12px + (14 - 12) * (100vw - 320px) / (1080 - 320));
+		height: fit-content;
+		justify-self: flex-end;
+		padding-right: 7.5%;
+		margin-top: 3%;
+	}
+	.authContainer > p {
+		font-size: calc(21px + (24 - 21) * (100vw - 320px) / (1080 - 320));
+		height: fit-content;
+		font-weight: bold;
+		justify-self: flex-start;
+	}
+
+	.details > .liveLinkContainer {
+		grid-area: liveLink;
+	}
+	.details > .liveLinkContainer,
+	.details > .reposContainer {
+		display: flex;
+		flex-direction: column;
+		padding: 2% 4% 2% 4%;
+		justify-content: flex-start;
+	}
+	.buttonContainer {
+		display: flex;
+		gap: 10px;
+		flex-direction: column;
+		height: 100%;
+		align-items: center;
+		justify-content: space-around;
+	}
+	.buttonContainer {
+		margin-top: 10px;
+	}
+	.liveLinkContainer > .buttonContainer > button,
+	.reposContainer > .buttonContainer > button {
+		width: fit-content;
+		min-width: 125px;
+		align-self: center;
+		text-decoration: underline;
+		padding: 1%;
+		border-radius: 7.5px;
+	}
+	.liveLinkContainer > h3,
+	.reposContainer > h3 {
+		width: fit-content;
+		align-self: center;
+		text-decoration: underline;
+		flex-grow: 0;
+	}
+
+	.details > .reposContainer {
+		grid-area: repoLinks;
+	}
+	.selectedProject > iframe {
+		flex-grow: 1;
+		width: clamp(320px, 100vw 1920px);
+		height: clamp(600px, 100vh, 1080px);
+		background-color: #b6b6b6;
+		border: 5px solid black;
+		border-radius: 5px;
+		box-shadow: 1em 0.75em 0.4em rgba(0, 255, 255, 0.25), -1em -0.75em 0.4em rgba(255, 0, 0, 0.25);
+		margin-bottom: 5vh;
+	}
+
+	.authContainer {
+		display: grid;
+		grid-template-columns: 40% 60%;
+		margin: 5px 0 5px 0;
+	}
 </style>

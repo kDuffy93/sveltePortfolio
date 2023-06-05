@@ -12,9 +12,9 @@
 <style>
     main{
         width:100%;
-        min-height: 75%;
-        
-        max-height: fit-content;
+        min-height: 75vh;
+        height: 75%;
+        max-height: max-content;
         display: flex;
         flex-direction: column;
         align-items: center;

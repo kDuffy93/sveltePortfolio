@@ -25,7 +25,7 @@
 
 	.logo {
         max-height: auto;
-        min-width: clamp(50px, 9.5vh, 9%);
+        min-width: 50px;
 		aspect-ratio: 1;
 		position: absolute;
 		top: 5vh;
@@ -35,7 +35,6 @@
 	.k {
 		pointer-events: none;
 		will-change: transform, opacity; 
-
 	}
 
 </style>
