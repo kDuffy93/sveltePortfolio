@@ -91,7 +91,6 @@
 		justify-content: space-around;
 		padding:1em;
 		flex-grow:2;
-		
 	}
 
 
@@ -104,7 +103,6 @@ min-width:240px;
 display: flex;
 max-width: 1400px;
 flex-wrap: wrap;
-row-gap: 5%;
 justify-content: space-around;
 align-items: flex-start;
 }

@@ -38,6 +38,7 @@ align-self: center;
         flex-basis:  clamp(250px ,45%, 450px);
         background-color:black;
         gap:7.5%;
+        
 	}
 
     .skill>div{
@@ -108,7 +109,11 @@ color: #e6e6e6;
 }
     @media (max-width: 540px) {
     .skill{
-        flex-basis:  clamp(250px, 85%, 425px)    
+        flex-basis:  clamp(250px, 85%, 425px)   ; 
+        margin-bottom: 5%;
+    }
+    .skill:last-of-type{
+        margin-bottom: 0;
     }
 }
 </style>
