@@ -1,9 +1,13 @@
 <script>
     export let title = 'Default Title';
     export let content = 'Default content, here is some sample text to illistrate a short paragraph';
-    export let isdefault = true;
-</script>
+    export let extra = false;
 
+</script>
+{#if extra}
+<div class="extra">
+</div>
+{:else}
 <div class="skill">
     <div>
         <i></i>
@@ -11,18 +15,29 @@
     </div>
     <pre><p>{content}</p></pre>
 </div>
-
+{/if}
 <style>
-    .skill {
+
+.extra{
+    min-width: 200px;
+    min-height: 200px;
+		border: 1px dashed white;
+        background-color:black;
+align-self: center;
+}
+
+.skill {
 		min-width: 100px;
-		min-height:50;
+		min-height:50px;
         height: max-content;
 		border: 1px dashed white;
 		border-radius: 10px;
         display: flex;
         flex-direction:column;
         justify-content: space-evenly;
-        flex-basis:  clamp(250px ,45%, 425px);
+        flex-basis:  clamp(250px ,45%, 450px);
+        background-color:black;
+        gap:7.5%;
 	}
 
     .skill>div{
@@ -57,19 +72,21 @@ min-height:  calc((15px + (18 - 15) * (100vw - 320px) / (1080 - 320))*12);
      }
      pre>p{
         padding: 2.5% 0;
-        padding-left:3%;
-        border-left: 1px solid white;
+        padding-left:5%;
+        border-left: 1px solid rgb(255, 255, 255, 0.3);
         font-size: calc(14.75px + (17 - 14.5) * (100vw - 320px) / (1080 - 320));
 margin-left: 1%;
 text-align: center;
 min-width: 28ch;
 padding-right:10px;
+color: #e6e6e6;
      }
      pre::before{
         content: '<h2>';
             display: block;
         padding-left:0;
         margin: 2.5% 0;
+        color: #599ad1;
 
         
     }    
@@ -78,6 +95,7 @@ padding-right:10px;
             display: block;
         padding-left:0;
         margin: 2.5% 0;
+        color: #599ad1;
 
         
     }

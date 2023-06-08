@@ -1,7 +1,12 @@
 
 <script>
 	import SkillsCard from './comoponents/skillsCard.svelte';
+	let screenWidth = 0;
+	
 </script>
+
+<svelte:window bind:innerWidth={screenWidth}   />
+
 <div class="welcome">
 	<h1>Welcome,</h1>
 	<h2>& Thanks for stopping by.</h2>
@@ -35,7 +40,13 @@
 	<SkillsCard title='Software Development' content='As an experienced software developer, I have a strong foundation in both functional and object-oriented programming paradigms. I am proficient in multiple programming languages, including Java, Python, C#, JavaScript, and Go. This diverse skill set enables me to approach software development from different perspectives and choose the most suitable approach for each project. '/>
 	<SkillsCard title='Web Development' content="I possess a proficient skill set in both front-end and back-end development, encompassing a wide range of technologies. These include HTML, CSS, JavaScript, jQuery, React, Node.js, and ASP.NET, among others. With expertise in these frameworks and languages, I am capable of seamlessly bridging the gap between the user interface and server-side functionalities."/>
 	<SkillsCard title='Database Management' content="I possess comprehensive expertise in both SQL and NoSQL databases, having successfully worked with a range of platforms including MYSQL, SQLServer, MongoDB, Firebase, and DB2. My experience spans designing and constructing databases from scratch, as well as executing efficient ETL processes to handle data within these databases."/>
+	{#if screenWidth > 1850}
+	<SkillsCard extra='true' />
+	{/if}
 	<SkillsCard title='UX/UI Design' content='With a keen eye for design and user experience, I create intuitive and visually appealing interfaces. Leveraging industry-standard tools like Figma, Adobe XD, and Illustrator, I craft wireframes, prototypes, and pixel-perfect designs. Guided by user-centered principles, I ensure seamless interactions and captivating experiences across platforms and devices. ' />
+	{#if screenWidth > 1850}
+	<SkillsCard extra='true' />
+	{/if}
 </div>
 
 </div>
@@ -89,10 +100,11 @@
  {
 width:100%;
 height: auto;
-min-width:240px;	
+min-width:240px;
 display: flex;
+max-width: 1400px;
 flex-wrap: wrap;
-row-gap: 1.5em;
+row-gap: 5%;
 justify-content: space-around;
 align-items: flex-start;
 }

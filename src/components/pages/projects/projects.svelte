@@ -2,6 +2,24 @@
 	import { navigating } from '$app/stores';
 	import { onMount, afterUpdate } from 'svelte';
 	let projects = {
+		project5: {
+			name: 'Rental Data Web Scraper',
+			liveLink: 'https://mesn-frontend-xi.vercel.app/',
+			repoLinks: [
+				{ for: 'Front-End', link: 'https://github.com/kDuffy93/MESN-frontend' },
+				{ for: 'Back-End', link: 'https://github.com/kDuffy93/MESN-backend' }
+			],
+			description:
+				`A web scraping application to grab local rental listings from various websites in the county and 
+				save the data for further use withing the county departments. The First server request takes a 
+				minute to respond, Its not frozen - the server is turning on.`,
+			login: {
+				authReq: true,
+				username: 'rich',
+				password: 'password'
+			},
+			mobile: true
+		},
 		project1: {
 			name: 'Story-Maker js Assignment',
 			liveLink: 'https://kduffy93.github.io/comp1073Labs/assignment1/index.html',
@@ -13,8 +31,7 @@
 				username: '',
 				password: ''
 			},
-			description:
-				'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ',
+			description:`A web application built using HTML, CSS, and Vanilla JS to replicate/expand-upon a physical game built in the 90's for children`,
 			mobile: true
 		},
 		project2: {
@@ -23,7 +40,7 @@
 			repoLinks: [
 				{ for: 'Fullstack', link: 'https://github.com/kDuffy93/comp1073Labs/tree/main/lab4' }
 			],
-			description: '',
+			description: 'A fun little rocket-ship game for any device with access to a browser. built using HTML, CSS and vanilla javascript.',
 			login: {
 				authReq: false,
 				username: '',
@@ -37,7 +54,7 @@
 			repoLinks: [
 				{ for: 'Fullstack', link: 'https://github.com/kDuffy93/comp1073Labs/tree/main/assignment4' }
 			],
-			description: '',
+			description: 'A web application built using HTML, CSS, and Vanilla JS and utilizing an API to retrieve data and display cocktail ingredients for various drinks based on the users input. .',
 			login: {
 				authReq: false,
 				username: '',
@@ -49,7 +66,7 @@
 			name: 'Ramara Training App',
 			liveLink: 'https://ramaraapp2019.onrender.com/',
 			repoLinks: [{ for: 'Fullstack', link: 'https://github.com/kDuffy93/ramaraApp2019' }],
-			description: '',
+			description: 'A data driven Web-application to track employee health and safety certificates as well as contractors. Technologies Used: Node, Express, EJS, MongoDB, Bootstrap, Css, and more. (Takes a minute to start up at first)',
 			mobile: true,
 			login: {
 				authReq: true,
@@ -57,27 +74,13 @@
 				password: 'test'
 			}
 		},
-		project5: {
-			name: 'Rental Data Web Scraper',
-			liveLink: 'https://mesn-frontend-xi.vercel.app/',
-			repoLinks: [
-				{ for: 'Front-End', link: 'https://github.com/kDuffy93/MESN-frontend' },
-				{ for: 'Back-End', link: 'https://github.com/kDuffy93/MESN-backend' }
-			],
-			description:
-				'A web scraping application to grab local rental listings from various websites in the county and save the data for further use withing the county departments. \n\n First server request takes a minute to respond, Its not frozen - the server is turning on.',
-			login: {
-				authReq: true,
-				username: 'rich',
-				password: 'password'
-			},
-			mobile: true
-		}
+		
 	};
 
 	let screenWidth = 0;
 	let oldSW = screenWidth;
-	$: selectedProject = projects.project1;
+	$: selectedProject = projects.project5;
+
 	let screenHeight;
 
 	$: if (screenWidth < 900 && selectedProject.mobile == false) {
@@ -91,6 +94,17 @@
 	}
 
 	let selectProject = (e) => {
+		let sideNavButtons = [...document.getElementsByClassName('sideNavButton')];
+		console.log(sideNavButtons);
+		sideNavButtons.forEach((button) => {
+			button.classList.remove("active");
+			console.log(button.id);
+			console.log(e.target.id);
+			if(String(button.id) == String(e.target.id)){
+				console.log("this one should have active");
+				button.classList.add("active");
+			}
+		});
 		for (const project in projects) {
 			if (Object.hasOwnProperty.call(projects, project)) {
 				const currentProject = projects[project];
@@ -139,20 +153,18 @@
 		{#each Object.entries(projects) as [title, content], i}
 			{#if screenWidth < 900}
 				{#if content.mobile}
-					<button
-						on:loadstart={updateNavButtonLocations}
-						on:click={selectProject}
-						class="sideNavButton"
-						id={title}>{content.name}</button
-					>
+					{#if title == 'project5'}
+					<button on:loadstart={updateNavButtonLocations}  on:click={selectProject} class="sideNavButton active"	id={title}>{content.name}</button>
+					{:else}
+					<button on:loadstart={updateNavButtonLocations}  on:click={selectProject} class="sideNavButton"	id={title}>{content.name}</button>
+					{/if}
 				{/if}
 			{:else}
-				<button
-					on:loadstart={updateNavButtonLocations}
-					on:click={selectProject}
-					class="sideNavButton"
-					id={title}>{content.name}</button
-				>
+			{#if title == 'project5'}
+			<button on:loadstart={updateNavButtonLocations}  on:click={selectProject} class="sideNavButton active"	id={title}>{content.name}</button>
+			{:else}
+			<button on:loadstart={updateNavButtonLocations}  on:click={selectProject} class="sideNavButton"	id={title}>{content.name}</button>
+			{/if}
 			{/if}
 		{/each}
 	</nav>
@@ -194,6 +206,8 @@
 </div>
 
 <style>
+
+
 	.projectsContainer {
 		margin-left: 2.5%;
 		margin-top: 50px;
@@ -271,6 +285,7 @@ min-height: 6ch;
 		flex-direction: column;
 		height: 90%;
 	}
+
 	.details {
 		width: 100%;
 		height: fit-content;

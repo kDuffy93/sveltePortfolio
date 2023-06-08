@@ -86,6 +86,10 @@ body{
     margin-right:15% !important;
 
     }
+    iframe {
+        margin-left: 3%;
+        width: 97%;
+    }
 }
 
 
@@ -125,6 +129,12 @@ a:visited,a{color:unset;}
     align-items: center;
 }
 
+.active{
+    background-color: #424141 !important;
+    color: rgb(0, 197, 0) !important;
+    border-color:  rgb(0, 197, 0) !important;
+    
+}
 @keyframes rotationk {
     from {
         transform: rotateY(0deg);
