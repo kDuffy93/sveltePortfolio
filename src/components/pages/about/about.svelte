@@ -51,7 +51,7 @@
 	}
 
 
-	@media screen and (max-width: 950px) {
+	@media screen and (max-width: 900px) {
 		.aboutContainer {
 			grid-template-columns: 35% 65%;
 			grid-template-areas:
