@@ -33,7 +33,6 @@
 
 <style>
 	.aboutContainer {
-		margin-left: 2.5%;
 		margin-top: 75px;
 		width: 95%;
 		min-height: 800px;

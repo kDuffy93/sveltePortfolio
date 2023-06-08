@@ -248,7 +248,10 @@
 		}
 
 	@media only screen and (max-device-width: 1080px) {
-		nav {
+
+		.projectsContainer {
+		margin-left: 0;
+		}		nav {
 		border-radius: 15px;
 		padding: 10px;
 		display: flex;
