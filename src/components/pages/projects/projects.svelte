@@ -11,14 +11,15 @@
 			],
 			description:
 				`A web scraping application to grab local rental listings from various websites in the county and 
-				save the data for further use withing the county departments. The First server request takes a 
-				minute to respond, Its not frozen - the server is turning on.`,
+				save the data for further use withing the county departments.`,
 			login: {
 				authReq: true,
 				username: 'rich',
 				password: 'password'
 			},
-			mobile: true
+			mobile: true,
+			notes: ['* The First server request takes a minute to respond, Its not frozen - the server is turning on. *'],
+
 		},
 		project1: {
 			name: 'Story-Maker js Assignment',
@@ -32,7 +33,9 @@
 				password: ''
 			},
 			description:`A web application built using HTML, CSS, and Vanilla JS to replicate/expand-upon a physical game built in the 90's for children`,
-			mobile: true
+			mobile: true,
+			notes: [],
+
 		},
 		project2: {
 			name: 'Rocketship game',
@@ -46,6 +49,7 @@
 				username: '',
 				password: ''
 			},
+			notes: [],
 			mobile: true
 		},
 		project3: {
@@ -60,13 +64,15 @@
 				username: '',
 				password: ''
 			},
+			notes: [],
 			mobile: false
 		},
 		project4: {
 			name: 'Ramara Training App',
 			liveLink: 'https://ramaraapp2019.onrender.com/',
 			repoLinks: [{ for: 'Fullstack', link: 'https://github.com/kDuffy93/ramaraApp2019' }],
-			description: 'A data driven Web-application to track employee health and safety certificates as well as contractors. Technologies Used: Node, Express, EJS, MongoDB, Bootstrap, Css, and more. (Takes a minute to start up at first)(Auth dosent work through iframe on all devices - view full website if it wont log you in)',
+			description: 'A data driven Web-application to track employee health and safety certificates as well as contractors. Technologies Used: Node, Express, EJS, MongoDB, Bootstrap, Css, and more.',
+			notes: ['* Takes a minute to start up at first - Its running on a free server *', '** Auth dosent work through iframe on all devices - view full website if it wont log you in. *'],
 			mobile: true,
 			login: {
 				authReq: true,
@@ -195,9 +201,13 @@
 					{/if}
 				</div>
 				<div class="descriptionText">
-					<p>
+					<p class='description'>
 						{selectedProject.description}
 					</p>
+					{#each selectedProject.notes as note}
+							<p>{note}</p>
+					{/each}
+				
 				</div>
 			</div>
 		</div>
@@ -218,7 +228,11 @@
 		display: flex;
 		flex-direction: column;
 	}
-	#mySidenav button {
+
+.description{
+	margin-top:2.5%;
+	margin-bottom: 5%;
+}	#mySidenav button {
 
 	left: -100vw;
 	}
@@ -311,6 +325,8 @@ min-height: 6ch;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		flex-direction: column;
+		gap: 15px;
 	}
 	.descriptionContainer > .authContainer {
 		display: grid;
