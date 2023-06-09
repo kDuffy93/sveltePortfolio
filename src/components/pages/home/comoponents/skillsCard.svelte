@@ -24,14 +24,14 @@
 .extra{
     min-width: 200px;
     min-height: 200px;
-    max-width:250px;
+    max-width:275px;
     max-height: 250px;
-		border: 1px dashed white;
         background-color:black;
 align-self: center;
 display: flex;
 flex-direction: column;
 justify-content: space-evenly;
+text-align: center;
 }
 
 .extra>p:first-of-type{
@@ -69,12 +69,13 @@ height: fit-content
 .skill {
 		min-width: 100px;
 		min-height:50px;
-        height: max-content;
+        height: 100%;
+        max-height: 450px;
 		border: 1px dashed white;
 		border-radius: 10px;
         display: flex;
         flex-direction:column;
-        justify-content: space-evenly;
+        justify-content: space-around;
         flex-basis:  clamp(250px ,45%, 450px);
         background-color:black;
         gap:7.5%;
@@ -115,7 +116,7 @@ min-height:  calc((15px + (18 - 15) * (100vw - 320px) / (1080 - 320))*12);
         padding: 2.5% 0;
         padding-left:5%;
         border-left: 1px solid rgb(255, 255, 255, 0.3);
-        font-size: calc(14.75px + (17 - 14.5) * (100vw - 320px) / (1080 - 320));
+        font-size: calc(14.75px + (16.75 - 14.5) * (100vw - 320px) / (1080 - 320));
 margin-left: 1%;
 text-align: center;
 min-width: 28ch;

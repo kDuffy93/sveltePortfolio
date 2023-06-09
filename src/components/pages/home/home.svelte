@@ -105,7 +105,7 @@ min-width:240px;
 display: flex;
 max-width: 1400px;
 flex-wrap: wrap;
-justify-content: space-evenly;
+justify-content: space-around;
 align-items: center;
 }
 
