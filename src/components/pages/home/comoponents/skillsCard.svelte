@@ -1,11 +1,14 @@
 <script>
     export let title = 'Default Title';
-    export let content = 'Default content, here is some sample text to illistrate a short paragraph';
+    export let content = '';
     export let extra = false;
+    export let author = '';
 
 </script>
 {#if extra}
 <div class="extra">
+    <p>{content}</p>
+    <p>{author}</p>
 </div>
 {:else}
 <div class="skill">
@@ -21,10 +24,47 @@
 .extra{
     min-width: 200px;
     min-height: 200px;
+    max-width:250px;
+    max-height: 250px;
 		border: 1px dashed white;
         background-color:black;
 align-self: center;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
 }
+
+.extra>p:first-of-type{
+    width: 90%;
+    margin-left: 5%;
+    font-size: 24px;
+    line-height: 28px;
+}
+.extra>p:last-of-type{
+width:fit-content;
+align-self: flex-end;
+margin-right: 5%;
+
+}
+.extra>p:last-of-type::before{
+margin-left: 5px;
+content: '\2014  ';
+}
+
+.extra>p:first-of-type::before{
+    content: '\201C';
+margin-right: 2.5px;
+font-size: 34px;
+
+}
+.extra>p:first-of-type::after{
+    content: "\201D";
+    position:absolute;
+font-size: 34px;
+height: fit-content
+
+}
+
 
 .skill {
 		min-width: 100px;
@@ -38,7 +78,7 @@ align-self: center;
         flex-basis:  clamp(250px ,45%, 450px);
         background-color:black;
         gap:7.5%;
-        
+        margin-bottom: 25px;
 	}
 
     .skill>div{

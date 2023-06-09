@@ -3,13 +3,10 @@
 
 <div class="aboutContainer">
 	<div>
-		<img src="Assets/d.svg" />
+		<img src="Assets/20221022_043327.jpg" />
 	</div>
 	<div class="resume">
-		<iframe
-			src="https://drive.google.com/file/d/1oowKdjpnO4lX6uZSDDVosulcFw1-cGcV/preview"
-			allow="autoplay"
-		/>
+		<iframe src="https://drive.google.com/file/d/1oowKdjpnO4lX6uZSDDVosulcFw1-cGcV/preview#zoom=FitH"/>
 	</div>
 	<div>
 		<p>
@@ -43,7 +40,7 @@
 		grid-template-columns: 40% 60%;
 		grid-template-areas:
 			'photo resume'
-			'. resume'
+			'short resume'
 			'short resume'
 			'short resume';
             margin-bottom: 40px;
@@ -58,7 +55,7 @@
 				'photo short'
 				'resume resume';
 		}
-        @media screen and (max-width: 740px) {		
+        @media (max-width: 740px) {		
         .aboutContainer {
         grid-template-columns: repeat(3, 1fr);
 			grid-template-areas: '. photo .'
@@ -71,15 +68,10 @@
 			width: 80% !important;
 			height: auto;
 			align-self: center;
-			aspect-ratio: 1;
+			aspect-ratio: 0.75;
 		}
     }
-		.aboutContainer > div:first-of-type > img {
-			width: auto;
-			height: 50%;
-			align-self: center;
-			aspect-ratio: 1;
-		}
+		
 		.aboutContainer > div:first-of-type {
 			align-items: center;
 		}
@@ -104,9 +96,9 @@
 		justify-content: center;
 	}
 	.aboutContainer > div:first-of-type > img {
-		width: 50%;
+		width: 60%;
 		height: auto;
-		aspect-ratio: 1;
+		aspect-ratio: .75;
 	}
 	.aboutContainer > div:last-of-type {
 		grid-area: short;

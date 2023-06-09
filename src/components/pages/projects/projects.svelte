@@ -18,7 +18,7 @@
 				password: 'password'
 			},
 			mobile: true,
-			notes: ['* The First server request takes a minute to respond, Its not frozen - the server is turning on. *'],
+			notes: ['* The First back-end server request (Login) takes a minute to respond, Its not frozen - the server is turning on. *'],
 
 		},
 		project1: {
@@ -261,10 +261,16 @@
 			content: '';
 		}
 
-	@media only screen and (max-device-width: 1080px) {
+					@media not screen and (max-device-width: 1280px) {
+						.projectsContainer {
+		margin-left: 6.5%;
+		width: 91%;
 
+		}	
+					}
+	@media only screen and (max-device-width: 1080px) {
 		.projectsContainer {
-		margin-left: 0;
+		margin-left: 2.5%;
 		}		nav {
 		border-radius: 15px;
 		padding: 10px;

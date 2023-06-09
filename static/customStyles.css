@@ -71,7 +71,7 @@ body{
     font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1080 - 320));
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1425px) {
     body{
         width:100vw;
         margin-left:0;
