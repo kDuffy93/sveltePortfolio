@@ -47,7 +47,7 @@
 	}
 
 
-	@media screen and (max-width: 900px) {
+	@media screen and (max-width: 1075px) {
 		.aboutContainer {
 			grid-template-columns: 35% 65%;
 			grid-template-areas:
@@ -81,7 +81,8 @@
 		grid-area: resume;
 		width: 100%;
 		display: flex;
-		justify-content: flex-end;
+		justify-content: center;
+		
 	}
 	.resume > iframe {
 		aspect-ratio: 0.75;
@@ -104,5 +105,6 @@
 		grid-area: short;
 		max-width: 95%;
 		text-align: center;
+		justify-self: center;
 	}
 </style>

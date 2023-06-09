@@ -249,7 +249,7 @@
 			border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
 		}
 		#mySidenav button::after {
-			content: url($Assets/SVG/right-arrow.svg);
+			content: src('/static/Assets/right-arrow.svg');
 			position: absolute;
 			left: 102%;
 		}
@@ -339,6 +339,8 @@ min-height: 6ch;
 		grid-template-columns: repeat(4, 25%);
 		align-items: center;
 		justify-self: flex-start;
+		margin: 5px 0 25px 0;
+
 	}
 	label {
 		font-size: calc(12px + (14 - 12) * (100vw - 320px) / (1080 - 320));
@@ -346,12 +348,19 @@ min-height: 6ch;
 		justify-self: flex-end;
 		padding-right: 7.5%;
 		margin-top: 3%;
+		box-sizing:content-box;
+
+
 	}
 	.authContainer > p {
 		font-size: calc(21px + (24 - 21) * (100vw - 320px) / (1080 - 320));
 		height: fit-content;
 		font-weight: bold;
 		justify-self: flex-start;
+		background-color: rgba(0, 0, 0, 0.859);
+		border-radius: 25px;
+		padding: 5px 10px 10px 10px;
+		border: 1px solid white;
 	}
 
 	.details > .liveLinkContainer {
@@ -361,8 +370,13 @@ min-height: 6ch;
 	.details > .reposContainer {
 		display: flex;
 		flex-direction: column;
-		padding: 2% 4% 2% 4%;
+		padding: 5% 5% 5% 5%;
+		border-radius: 20px;
 		justify-content: flex-start;
+		width: fit-content;
+justify-self: center;
+background-color: black;
+margin-bottom: 25px;
 	}
 	.buttonContainer {
 		display: flex;
@@ -406,9 +420,5 @@ min-height: 6ch;
 		margin-bottom: 5vh;
 	}
 
-	.authContainer {
-		display: grid;
-		grid-template-columns: 40% 60%;
-		margin: 5px 0 5px 0;
-	}
+
 </style>
