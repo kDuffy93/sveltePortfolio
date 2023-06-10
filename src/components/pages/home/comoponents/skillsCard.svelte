@@ -6,7 +6,9 @@
     export let author = '';
     let titleWords = title.split(" ");
 
-   
+   let fullscreenIframeToggle = () => {
+
+   }
 
 </script>
 {#if extra}
@@ -185,13 +187,17 @@ font-family: 'Nanum Pen Script', cursive;
         
     }
 }
-    @media (max-width: 540px) {
+@media (max-width: 675px) {
     .skill{
         flex-basis:  clamp(250px, 85%, 425px)   ; 
         margin-bottom: 5%;
     }
     .skill:last-of-type{
         margin-bottom: 0;
+    }
+} @media (max-width: 515px) {
+    .skill{
+        flex-basis:  clamp(250px, 95%, 425px)   ; 
     }
 }
 </style>

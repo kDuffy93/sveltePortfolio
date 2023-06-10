@@ -216,20 +216,22 @@
 	</div>
 </div>
 
+
 <style>
 .note{
 font-family: 'Alkatra', cursive;
 font-size: 16px;
-width: 100%;
-margin-bottom: 5px;
+width: 97.5%;
+margin-left: 2.5%;
 }
 .note:last-of-type{
-	margin-bottom: 12.5px;
+	margin-bottom: 20px;
 }
 
 	.projectsContainer {
 		margin-left: 2.5%;
 		margin-top: 50px;
+
 		width: 95%;
 		height: 100%;
 		flex-grow: 1;
@@ -257,6 +259,7 @@ font-size: 26px
 			font-size: 20px; /* Increase font size */
 			color: white;
 			background-color: black; /* White text color */
+			font-family: 'Courgette';
 			border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
 		}
 		#mySidenav button::after {
@@ -325,8 +328,8 @@ min-height: 6ch;
 		height: fit-content;
 		padding: 1%;
 		display: grid;
-		grid-template-columns: repeat(7, 1fr);
-		grid-template-areas: ' . liveLink liveLink . repoLinks repoLinks .' '.description description description description description .';
+		grid-template-columns: repeat(9, 1fr);
+		grid-template-areas: ' liveLink liveLink liveLink liveLink . repoLinks repoLinks repoLinks repoLinks' '.description  description description description description description description .';
 		margin-bottom: 15px;
 	}
 	.details > .descriptionContainer {
@@ -347,31 +350,54 @@ min-height: 6ch;
 	}
 	.descriptionContainer > .authContainer {
 		display: grid;
-		grid-template-columns: repeat(4, 25%);
+		grid-template-columns: repeat(5, 1fr);
 		align-items: center;
 		justify-self: flex-start;
 		margin: 5px 0 25px 0;
-
+		grid-template-areas: "un user . pw pass"
 	}
+
+	@media (max-width: 500px) {
+	.descriptionContainer > .authContainer {
+		grid-template-areas:". un . user ."". pw . pass .";
+	}}
 	label {
-		font-size: calc(12px + (14 - 12) * (100vw - 320px) / (1080 - 320));
+		font-size: calc(15px + (16 - 15) * (100vw - 320px) / (1080 - 320));
 		height: fit-content;
-		justify-self: flex-end;
 		padding-right: 7.5%;
 		margin-top: 3%;
 		box-sizing:content-box;
+        font-family: 'Cherry Bomb One', cursive;
 
 
 	}
+	label:first-of-type{
+		grid-area: un;
+		justify-self: end;
+	}
+	label:last-of-type{
+		grid-area: pw;
+		justify-self: end;
+
+	}
+	.authContainer > p:first-of-type { grid-area: user;
+		justify-self: start;
+	}
+	.authContainer > p:last-of-type {grid-area: pass;
+		justify-self: start;
+	}
+	
 	.authContainer > p {
 		font-size: calc(21px + (24 - 21) * (100vw - 320px) / (1080 - 320));
 		height: fit-content;
 		font-weight: bold;
 		justify-self: flex-start;
 		background-color: rgba(0, 0, 0, 0.859);
-		border-radius: 25px;
+		border-radius: 10px;
 		padding: 5px 10px 10px 10px;
 		border: 1px solid white;
+		font-family: 'Bagel Fat One', cursive;	
+	justify-self: center;
 	}
 
 	.details > .liveLinkContainer {
@@ -384,7 +410,7 @@ min-height: 6ch;
 		padding: 5% 5% 5% 5%;
 		border-radius: 20px;
 		justify-content: flex-start;
-		width: fit-content;
+		width: max-content;
 justify-self: center;
 background-color: black;
 margin-bottom: 25px;
@@ -403,11 +429,14 @@ margin-bottom: 25px;
 	.liveLinkContainer > .buttonContainer > button,
 	.reposContainer > .buttonContainer > button {
 		width: fit-content;
-		min-width: 125px;
+		min-width: 110px;
 		align-self: center;
-		text-decoration: underline;
 		padding: 1%;
 		border-radius: 7.5px;
+		white-space:nowrap;
+		font-family: 'Courgette';
+		padding: 3px 8px;
+
 	}
 	.liveLinkContainer > h3,
 	.reposContainer > h3 {
@@ -415,6 +444,10 @@ margin-bottom: 25px;
 		align-self: center;
 		text-decoration: underline;
 		flex-grow: 0;
+        font-family: 'Cherry Bomb One', cursive;
+		font-size: calc(18px + (22 - 18) * (100vw - 320px) / (1080 - 320));
+
+letter-spacing: .2ch;
 	}
 
 	.details > .reposContainer {
@@ -430,6 +463,8 @@ margin-bottom: 25px;
 		box-shadow: 1em 0.75em 0.4em rgba(0, 255, 255, 0.25), -1em -0.75em 0.4em rgba(255, 0, 0, 0.25);
 		margin-bottom: 5vh;
 	}
+
+	
 
 
 </style>

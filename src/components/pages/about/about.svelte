@@ -106,10 +106,7 @@
 		max-width: 95%;
 		text-align: center;
 		justify-self: center;
-		font-family: 'Sunshiney', cursive;
-		font-size: 20px;
-
-
+		font-size: 22px;
 font-family: 'Edu NSW ACT Foundation', cursive;
 
 

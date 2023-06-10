@@ -37,4 +37,12 @@
 		will-change: transform, opacity; 
 	}
 
+	@media (max-width: 415px) {
+	.logo {
+		top: 1vh;
+		left: 12.5vw;
+
+	}
+}
+
 </style>

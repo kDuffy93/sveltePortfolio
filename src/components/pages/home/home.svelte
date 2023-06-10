@@ -65,6 +65,7 @@
 	h1 {
 		font-size: clamp(36pt, 3.25em, 48pt);
 		font-family: 'Permanent Marker', cursive;
+		
 		align-self: center;
 	}
 	h2 {
@@ -82,7 +83,7 @@
 		border-left: 3px solid white;
 		padding: 10px 10px 10px 20px;
 		align-self: flex-end;
-font-family: 'Nanum Pen Script', cursive;
+font-family: 'Edu NSW ACT Foundation', cursive;
 
 
 
