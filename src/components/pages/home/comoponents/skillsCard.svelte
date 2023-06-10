@@ -98,7 +98,7 @@ height: fit-content
         display: flex;
         flex-direction:column;
         justify-content: space-around;
-        flex-basis:  clamp(250px ,45%, 450px);
+        flex-basis:  clamp(250px ,46%, 475px);
         background-color:black;
         gap:7.5%;
         margin-bottom: 25px;
@@ -199,4 +199,16 @@ font-family: 'Nanum Pen Script', cursive;
         flex-basis:  clamp(250px, 95%, 425px)   ; 
     }
 }
+
+@media (min-width: 1800px) {
+    .skill {
+
+flex-basis:  clamp(250px ,42.5%, 450px) !important;
+    }
+ } @media (min-width: 1850px) {
+    .skill {
+
+flex-basis:  clamp(250px ,42.5%, 420px) !important;
+    }
+ }
 </style>
