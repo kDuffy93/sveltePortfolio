@@ -360,6 +360,7 @@ min-height: 6ch;
 	@media (max-width: 500px) {
 	.descriptionContainer > .authContainer {
 		grid-template-areas:". un . user ."". pw . pass .";
+		row-gap: 15px;
 	}}
 	label {
 		font-size: calc(15px + (16 - 15) * (100vw - 320px) / (1080 - 320));
