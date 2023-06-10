@@ -257,7 +257,7 @@ font-size: 26px
 			width: fit-content; /* Set a specific width */
 			text-decoration: none; /* Remove underline */
 			font-size: 20px; /* Increase font size */
-			color: white;
+			color: var(--off-white);;
 			background-color: black; /* White text color */
 			font-family: 'Courgette';
 			border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
@@ -302,7 +302,7 @@ font-size: 26px
 	#mySidenav button {
 		white-space: unset;
 		position:unset;
-		color: white;
+		color: var(--off-white);;
 			background-color: black; /* White text color */
 			border-radius: 0 5px 5px 0;
 		border-radius: 12.5px;
@@ -395,7 +395,7 @@ min-height: 6ch;
 		background-color: rgba(0, 0, 0, 0.859);
 		border-radius: 10px;
 		padding: 5px 10px 10px 10px;
-		border: 1px solid white;
+		border: 1px solid var(--off-white);;
 		font-family: 'Bagel Fat One', cursive;	
 	justify-self: center;
 	}
@@ -436,6 +436,7 @@ margin-bottom: 25px;
 		white-space:nowrap;
 		font-family: 'Courgette';
 		padding: 3px 8px;
+		background-color: var(--off-white);;
 
 	}
 	.liveLinkContainer > h3,
@@ -457,7 +458,7 @@ letter-spacing: .2ch;
 		flex-grow: 1;
 		width: clamp(320px, 100vw 1920px);
 		height: clamp(600px, 100vh, 1080px);
-		background-color: #b6b6b6;
+		background-color: var(--off-white);;
 		border: 5px solid black;
 		border-radius: 5px;
 		box-shadow: 1em 0.75em 0.4em rgba(0, 255, 255, 0.25), -1em -0.75em 0.4em rgba(255, 0, 0, 0.25);

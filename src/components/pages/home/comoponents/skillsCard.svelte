@@ -93,7 +93,7 @@ height: fit-content
 		min-height:50px;
         height: 100%;
         max-height: 450px;
-		border: 1px dashed white;
+		border: 1px dashed var(--off-white);;
 		border-radius: 10px;
         display: flex;
         flex-direction:column;
@@ -156,7 +156,6 @@ margin-left: 1%;
 text-align: center;
 min-width: 28ch;
 padding-right:10px;
-color: #e6e6e6;
 
 font-family: 'Nanum Pen Script', cursive;
 
