@@ -70,7 +70,7 @@
 		project4: {
 			name: 'Ramara Training App',
 			liveLink: 'https://ramaraapp2019.onrender.com/',
-			repoLinks: [{ for: 'Fullstack', link: 'https://github.com/kDuffy93/ramaraApp2019' }],
+			repoLinks: [{ for: 'Fullstack', link: 'https://github.com/kDuffy93/ramaraApp2019/tree/master/' }],
 			description: 'A data driven Web-application to track employee health and safety certificates as well as contractors. Technologies Used: Node, Express, EJS, MongoDB, Bootstrap, Css, and more.',
 			notes: ['*Takes a minute to start up at first - Its running on a free server', '*Auth dosent work through iframe on all devices - view full website if it wont log you in.'],
 			mobile: true,
