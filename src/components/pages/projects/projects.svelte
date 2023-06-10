@@ -275,16 +275,9 @@ font-size: 26px
 			content: '';
 		}
 
-					@media not screen and (max-device-width: 1280px) {
-						.projectsContainer {
-		margin-left: 6.5%;
-		width: 91%;
-
-		}	
-					}
-	@media only screen and (max-device-width: 1080px) {
+				
+	@media only screen and (max-device-width: 1440px) {
 		.projectsContainer {
-		margin-left: 2.5%;
 		}		nav {
 		border-radius: 15px;
 		padding: 10px;
@@ -307,13 +300,23 @@ font-size: 26px
 			border-radius: 0 5px 5px 0;
 		border-radius: 12.5px;
 		padding: 5px;
-		min-width: 115px;
+		min-width: 150px;
 		width: clamp(115px, 28vw, 175px);
 border-radius: 7.5px;
 min-height: 6ch;
 
 	}
 }
+
+@media only screen and (max-device-width: 400px) {
+	#mySidenav button {
+min-height: 20px;
+	min-width:85vw;
+}
+
+
+}
+
 	.selectedProject {
 		margin-top: 2.5%;
 		margin-left: -2.5%;

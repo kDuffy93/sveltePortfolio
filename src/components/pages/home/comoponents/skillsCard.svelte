@@ -108,7 +108,7 @@ height: fit-content
         display: flex;
     }
     .skill>div>i{
-        min-width:20%;
+        min-width:15%;
     }
 .skill>div>div{
     display: flex; 
