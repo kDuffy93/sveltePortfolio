@@ -36,6 +36,17 @@
 		pointer-events: none;
 		will-change: transform, opacity; 
 	}
+	
+.navContainer {
+    position: relative;
+    size:inherit;
+    min-width: 80%;
+    max-width: 80%;
+    margin-left:20%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
 
 	@media (max-width: 415px) {
 	.logo {
