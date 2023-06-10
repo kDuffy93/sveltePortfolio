@@ -18,7 +18,7 @@
 				password: 'password'
 			},
 			mobile: true,
-			notes: ['* The First back-end server request (Login) takes a minute to respond, Its not frozen - the server is turning on. *'],
+			notes: ['*The First back-end server request (Login) takes a minute to respond, Its not frozen - the server is turning on.'],
 
 		},
 		project1: {
@@ -72,7 +72,7 @@
 			liveLink: 'https://ramaraapp2019.onrender.com/',
 			repoLinks: [{ for: 'Fullstack', link: 'https://github.com/kDuffy93/ramaraApp2019' }],
 			description: 'A data driven Web-application to track employee health and safety certificates as well as contractors. Technologies Used: Node, Express, EJS, MongoDB, Bootstrap, Css, and more.',
-			notes: ['* Takes a minute to start up at first - Its running on a free server *', '** Auth dosent work through iframe on all devices - view full website if it wont log you in. *'],
+			notes: ['*Takes a minute to start up at first - Its running on a free server', '*Auth dosent work through iframe on all devices - view full website if it wont log you in.'],
 			mobile: true,
 			login: {
 				authReq: true,
@@ -204,19 +204,28 @@
 					<p class='description'>
 						{selectedProject.description}
 					</p>
-					{#each selectedProject.notes as note}
-							<p>{note}</p>
-					{/each}
+				
 				
 				</div>
 			</div>
 		</div>
+		{#each selectedProject.notes as note}
+		<p class='note'>{note}</p>
+{/each}
 		<iframe src={selectedProject.liveLink} class="resized" title="selectedProject.liveLink}" />
 	</div>
 </div>
 
 <style>
-
+.note{
+font-family: 'Alkatra', cursive;
+font-size: 16px;
+width: 100%;
+margin-bottom: 5px;
+}
+.note:last-of-type{
+	margin-bottom: 12.5px;
+}
 
 	.projectsContainer {
 		margin-left: 2.5%;
@@ -232,6 +241,8 @@
 .description{
 	margin-top:2.5%;
 	margin-bottom: 5%;
+font-family: 'Edu NSW ACT Foundation', cursive;
+font-size: 26px
 }	#mySidenav button {
 
 	left: -100vw;

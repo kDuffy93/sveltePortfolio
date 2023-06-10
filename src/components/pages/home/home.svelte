@@ -76,12 +76,17 @@
 	}
 
 	.welcome > p {
-		font-size: calc(16px + (18 - 16) * (100vw - 320px) / (1080 - 320));
+		font-size: calc(20px + (22 - 20) * (100vw - 320px) / (1080 - 320));
 		margin-top: calc(5px + (10 - 5) * (100vw - 320px) / (1080 - 320));
 		width: clamp(200px, 85%, 800px);
 		border-left: 3px solid white;
 		padding: 10px 10px 10px 20px;
 		align-self: flex-end;
+font-family: 'Nanum Pen Script', cursive;
+
+
+
+
 	}
 
 	.cta {
